@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, Image } from "react-native";
 import * as React from "react";
-import MainLogo from "../../Images/slackslogo.png";
+import RadioStream from "../MainScreen/RadioStream2";
 
 const styles = StyleSheet.create({
   componentBackground: {
@@ -26,6 +26,9 @@ const HomeScreen = () => {
     <View style={styles.componentBackground}>
       <View style={styles.componentBackground}>
       <Image style={styles.logo} source={require("../../Images/SlacksTextBlack.png")} />
+      </View>
+      <View>
+        <RadioStream />
       </View>
     </View>
   );
