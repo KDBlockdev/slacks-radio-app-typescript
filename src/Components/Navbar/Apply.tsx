@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet } from "react-native";
-import React from "react";
+import * as React from "react";
 
 const styles = StyleSheet.create({
     bottomBar: {

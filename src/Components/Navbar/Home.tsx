@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, Image } from "react-native";
-import React from "react";
+import * as React from "react";
 import MainLogo from "../../Images/slackslogo.png";
 
 const styles = StyleSheet.create({
@@ -10,24 +10,23 @@ const styles = StyleSheet.create({
     margin: 5,
     borderRadius: 5,
   },
+  logo: {
+    width: 500,
+    height: 10,
+    padding: 60,
+    paddingHorizontal: 10,
+    backgroundColor: "#CCCCFF",
+    alignItems: "center",
+    justifyContent: "center",
+  },
 })
 
 const HomeScreen = () => {
   return (
     <View>
       <View style={styles.componentBackground}>
-        <MainLogo />
+      <Image style={styles.logo} source={require("../../Images/SlacksTextBlack.png")} />
       </View>
-      {/* <View style={styles.componentBackground}>
-        <RadioStream />
-      </View> */}
-      <View style={styles.componentBackground}>
-        <Text>SCHEDULE</Text>
-      </View>
-      {/* <View>
-        <Text>Soundcloud Player</Text>
-        <SoundCloudPlayer trackUrl="https://soundcloud.com/slacksradio/diz-fundraiser-marathon-december-2022" />
-      </View> */}
     </View>
   );
 };
