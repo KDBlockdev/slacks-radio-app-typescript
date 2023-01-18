@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
 
 const HomeScreen = () => {
   return (
-    <View>
+    <View style={styles.componentBackground}>
       <View style={styles.componentBackground}>
       <Image style={styles.logo} source={require("../../Images/SlacksTextBlack.png")} />
       </View>
