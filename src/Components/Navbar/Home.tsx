@@ -3,6 +3,7 @@ import { useState } from "react";
 import * as React from "react";
 import RadioStream from "../MainScreen/RadioStream";
 import SoundCloudPlayer from "../MainScreen/Soundcloud";
+import GoogleTimesheet from "../MainScreen/Schedule";
 
 const styles = StyleSheet.create({
   componentBackground: {
@@ -33,6 +34,12 @@ const HomeScreen = () => {
       </View>
       <View>
         <RadioStream />
+      </View>
+      <View>
+        {/* <SoundCloudPlayer trackId={trackId}/> */}
+      </View>
+      <View>
+        {/* <GoogleTimesheet /> */}
       </View>
     </View>
   );
