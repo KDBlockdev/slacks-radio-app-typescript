@@ -1,6 +1,8 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { useState } from "react";
 import * as React from "react";
-import RadioStream from "../MainScreen/RadioStream2";
+import RadioStream from "../MainScreen/RadioStream";
+import SoundCloudPlayer from "../MainScreen/Soundcloud";
 
 const styles = StyleSheet.create({
   componentBackground: {
@@ -22,6 +24,8 @@ const styles = StyleSheet.create({
 })
 
 const HomeScreen = () => {
+  const [isChatVisible, setIsChatVisible] = useState(false);
+
   return (
     <View style={styles.componentBackground}>
       <View style={styles.componentBackground}>
@@ -35,3 +39,4 @@ const HomeScreen = () => {
 };
 
 export default HomeScreen;
+

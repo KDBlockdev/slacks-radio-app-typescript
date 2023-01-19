@@ -4,7 +4,7 @@ import { createMaterialBottomTabNavigator } from "@react-navigation/material-bot
 import 'react-native-gesture-handler';
 import { NavigationContainer } from "@react-navigation/native";
 import MyTabs from "./src/Components/BottomNav";
-
+  
 const Tab = createMaterialBottomTabNavigator();
 
 const styles = StyleSheet.create({

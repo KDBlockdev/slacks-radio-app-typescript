@@ -1,11 +1,13 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import * as React from 'react';
 import HomeScreen from './Navbar/Home';
 import ApplyScreen from './Navbar/Apply';
 import SupportScreen from './Navbar/Support';
 import ContactScreen from './Navbar/Contact';
-import ChatScreen from './Navbar/Chat';
+import Chat from './Navbar/Chat'
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import AntDesign from "react-native-vector-icons/AntDesign";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 const Tab = createBottomTabNavigator();
 
@@ -13,7 +15,7 @@ function MyTabs() {
   return (
     <Tab.Navigator>
       <Tab.Screen name="Home" component={HomeScreen} options={{
-        title: "Home!",
+        title: "Home",
         tabBarIcon: ( ) => 
           <MaterialCommunityIcons name="home" size={26} />
       }} />
@@ -22,7 +24,7 @@ function MyTabs() {
         tabBarIcon: ( ) => 
         <AntDesign name="question" size={26} />
       }} />
-       <Tab.Screen name="Apply" component={ContactScreen} options={{
+       <Tab.Screen name="Apply" component={ApplyScreen} options={{
         title: "Apply Here!",
         tabBarIcon: () => 
         <MaterialCommunityIcons
@@ -30,7 +32,7 @@ function MyTabs() {
         size={26}
       />
       }} />
-      <Tab.Screen name="Support Us" component={ContactScreen} options={{
+      <Tab.Screen name="Support Us" component={SupportScreen} options={{
         title: "Support Us!",
         tabBarIcon: ( ) => (
           <MaterialCommunityIcons
@@ -39,7 +41,15 @@ function MyTabs() {
               />
         )
       }} />
-      <Tab.Screen name="Chat" component={ChatScreen} />
+      <Tab.Screen name="Chat" component={Chat} options={{
+        title: "Chat",
+        tabBarIcon: ( ) => (
+          <Ionicons
+                name="chatbubbles-outline"
+                size={26}
+              />
+        )
+      }} />
     </Tab.Navigator>
   );
 }

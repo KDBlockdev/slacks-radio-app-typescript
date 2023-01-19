@@ -1,22 +1,30 @@
-import { View, Text, StyleSheet, Image } from "react-native";
-import * as React from "react";
+import React, { useState } from 'react';
+import { View, TextInput, Button, Text } from 'react-native';
 
-const styles = StyleSheet.create({
-  componentBackground: {
-    backgroundColor: "#CCCCFF",
-    justifyContent: "center",
-    alignItems: "center",
-    margin: 5,
-    borderRadius: 5,
-  },
-})
+const Chat: React.FC = () => {
+  const [message, setMessage] = useState('');
+  const [messages, setMessages] = useState<string[]>([]);
 
-const ChatScreen = () => {
+  const handleSubmit = () => {
+    setMessages([...messages, message]);
+    setMessage('');
+  };
+
   return (
-    <View style={styles.componentBackground}>
-     <Text>Chat</Text>
+    <View>
+      <View>
+        {messages.map((m, i) => (
+          <Text key={i}>{m}</Text>
+        ))}
+      </View>
+      <TextInput
+        value={message}
+        onChangeText={setMessage}
+        placeholder="Type your message here"
+      />
+      <Button title="Send" onPress={handleSubmit} />
     </View>
   );
 };
 
-export default ChatScreen;
+export default Chat;
