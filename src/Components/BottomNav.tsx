@@ -8,6 +8,7 @@ import Chat from './Navbar/Chat'
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import PayPalDonate from './Navbar/Support';
 
 const Tab = createBottomTabNavigator();
 
@@ -32,7 +33,7 @@ function MyTabs() {
         size={26}
       />
       }} />
-      <Tab.Screen name="Support Us" component={SupportScreen} options={{
+      <Tab.Screen name="Support Us" component={PayPalDonate} options={{
         title: "Support Us!",
         tabBarIcon: ( ) => (
           <MaterialCommunityIcons
@@ -55,3 +56,5 @@ function MyTabs() {
 }
 
 export default MyTabs;
+
+<PayPalDonate email="example@example.com" amount={10} />

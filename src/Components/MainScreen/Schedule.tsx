@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet  } from 'react-native';
 import * as Google from 'expo-google-app-auth';
 
 interface Props {
