@@ -26,7 +26,10 @@ const styles = StyleSheet.create({
   
     return (
       <TouchableOpacity onPress={handlePress}>
-        <Text>Donate</Text>
+        <Text>Slack’s is completely independent!</Text>
+<Text>We rely solely on subscriptions and donations.</Text>
+<Text>Please consider becoming a Slack’s Supporter.</Text>
+        <Text>Click here to Donate!</Text>
       </TouchableOpacity>
     );
   };

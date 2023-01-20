@@ -4,6 +4,32 @@ import * as React from "react";
 import RadioStream from "../MainScreen/RadioStream";
 import SoundCloudPlayer from "../MainScreen/Soundcloud";
 import GoogleTimesheet from "../MainScreen/Schedule";
+import NowPlayingBanner from "../MainScreen/NowPlayingBanner";
+import { StackNavigationProp } from '@react-navigation/stack';
+
+const HomeScreen = () => {
+  return (
+    <View style={styles.componentBackground}>
+      <View style={styles.componentBackground}>
+        {/* <NowPlayingBanner /> */}
+      </View>
+      <View style={styles.componentBackground}>
+      <Image style={styles.logo} source={require("../../Images/SlacksTextBlack.png")} />
+      </View>
+      <View style={styles.componentBackground}>
+        <RadioStream />
+      </View>
+      <View style={styles.componentBackground}>
+        {/* <SoundCloudPlayer trackId={trackId}/> */}
+      </View>
+      <View style={styles.componentBackground}>
+        {/* <GoogleTimesheet /> */}
+      </View>
+    </View>
+  );
+};
+
+export default HomeScreen;
 
 const styles = StyleSheet.create({
   componentBackground: {
@@ -14,8 +40,8 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   logo: {
-    width: 500,
-    height: 10,
+    width: 400,
+    height: 50,
     padding: 60,
     paddingHorizontal: 10,
     backgroundColor: "#CCCCFF",
@@ -23,27 +49,4 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 })
-
-const HomeScreen = () => {
-  const [isChatVisible, setIsChatVisible] = useState(false);
-
-  return (
-    <View style={styles.componentBackground}>
-      <View style={styles.componentBackground}>
-      <Image style={styles.logo} source={require("../../Images/SlacksTextBlack.png")} />
-      </View>
-      <View>
-        <RadioStream />
-      </View>
-      <View>
-        {/* <SoundCloudPlayer trackId={trackId}/> */}
-      </View>
-      <View>
-        {/* <GoogleTimesheet /> */}
-      </View>
-    </View>
-  );
-};
-
-export default HomeScreen;
 

@@ -1,14 +1,13 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import * as React from 'react';
-import HomeScreen from './Navbar/Home';
-import ApplyScreen from './Navbar/Apply';
-import SupportScreen from './Navbar/Support';
-import ContactScreen from './Navbar/Contact';
-import Chat from './Navbar/Chat'
+import HomeScreen from "../Screens/Home"
+import ApplyScreen from '../Screens/Apply';
+import ContactScreen from '../Screens/Contact';
+import Chat from '../Screens/Chat'
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import PayPalDonate from './Navbar/Support';
+import PayPalDonate from '../Screens/Support';
 
 const Tab = createBottomTabNavigator();
 
@@ -18,27 +17,32 @@ function MyTabs() {
       <Tab.Screen name="Home" component={HomeScreen} options={{
         title: "Home",
         tabBarIcon: ( ) => 
-          <MaterialCommunityIcons name="home" size={26} />
-      }} />
+          <MaterialCommunityIcons name="home" size={26} 
+          style={{ backgroundColor: '#CCCCFF'}}/>
+      }} 
+      />
         <Tab.Screen name="Contact" component={ContactScreen} options={{
-        title: "Contact Us!",
+        title: "Contact",
         tabBarIcon: ( ) => 
-        <AntDesign name="question" size={26} />
+        <AntDesign name="question" size={26} 
+        style={{ backgroundColor: '#CCCCFF'}}/>
       }} />
        <Tab.Screen name="Apply" component={ApplyScreen} options={{
-        title: "Apply Here!",
+        title: "Apply",
         tabBarIcon: () => 
         <MaterialCommunityIcons
         name="application-edit-outline"
         size={26}
+        style={{ backgroundColor: '#CCCCFF'}}
       />
       }} />
-      <Tab.Screen name="Support Us" component={PayPalDonate} options={{
-        title: "Support Us!",
+      <Tab.Screen name="Support" component={PayPalDonate} options={{
+        title: "Support",
         tabBarIcon: ( ) => (
           <MaterialCommunityIcons
-                name="cash-fast"
-                size={26}
+          name="cash-fast"
+          size={26}
+           style={{ backgroundColor: '#CCCCFF'}}
               />
         )
       }} />
@@ -48,6 +52,7 @@ function MyTabs() {
           <Ionicons
                 name="chatbubbles-outline"
                 size={26}
+                style={{ backgroundColor: '#CCCCFF'}}
               />
         )
       }} />
