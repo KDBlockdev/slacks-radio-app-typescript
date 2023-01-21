@@ -37,7 +37,6 @@ const NowPlayingBanner: React.FC<Props> = ({ onPlay, onStop }) => {
   return (
     <View>
       <TouchableOpacity onPress={isPlaying ? handleStop : handlePlay}>
-        <Text>{isPlaying ? 'Stop' : 'Play'}</Text>
       </TouchableOpacity>
       {isPlaying && (
         <ScrollView

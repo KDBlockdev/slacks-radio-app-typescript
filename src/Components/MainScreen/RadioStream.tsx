@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { TouchableOpacity, View, Image, StyleSheet, Text } from 'react-native';
 import { Audio } from 'expo-av';
-import styled from 'styled-components';
 
 const streamUrl = 'https://s3.radio.co/seb7265206/low';
 
@@ -9,13 +8,17 @@ const RadioStream: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [soundObject, setSoundObject] = useState<Audio.Sound | null>(null);
 
+useEffect(() => {
+  playStream();
+}, []); 
+
   const playStream = async () => {
     if (!soundObject) {
       const newSoundObject = new Audio.Sound();
       setSoundObject(newSoundObject);
       await newSoundObject.loadAsync({ uri: streamUrl }, {}, false);
     }
-    if(soundObject) await soundObject.playAsync();
+    soundObject?.playAsync();
     setIsPlaying(true);
   };
 
