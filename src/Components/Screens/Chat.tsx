@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, TextInput, Button, Alert, StyleSheet } from 'react-native';
+import { Text, View, TextInput, Button, Alert, StyleSheet, Image } from 'react-native';
 import io from 'socket.io-client';
 
 const ChatScreen: React.FC = () => {
@@ -45,37 +45,40 @@ const ChatScreen: React.FC = () => {
   };
 
   return (
-    <View>
-      <View>
+    <View style={styles.container}>
+      <View style={styles.imageContainer}>
+        <Image source={require('../../Images/SlacksTextWhite.png')} style={styles.image} />
+      </View>
+      <View style={styles.inputContainer}>
         <TextInput
           placeholder="Enter your name"
           value={name}
           onChangeText={setName}
           style={styles.nameInput}
         />
-        <View>
-        <TextInput
-          placeholder="Enter your message"
-          value={text}
-          onChangeText={setText}
-          autoCorrect={true}
-          autoCapitalize={'sentences'}
-          allowFontScaling={true}
-          enablesReturnKeyAutomatically={true}
-          returnKeyType={'done'}
-          multiline={false}
-          dataDetectorTypes={'all'}
-          textContentType={'none'}
-          style={styles.messageInput}
-        />
+        <View style={styles.textInputContainer}>
+          <TextInput
+            placeholder="Enter your message"
+            value={text}
+            onChangeText={setText}
+            autoCorrect={true}
+            autoCapitalize={'sentences'}
+            allowFontScaling={true}
+            enablesReturnKeyAutomatically={true}
+            returnKeyType={'done'}
+            multiline={false}
+            dataDetectorTypes={'all'}
+            textContentType={'none'}
+            style={styles.messageInput}
+          />
         </View>
-        <View style={styles.sendButton}>
-        <Button onPress={handleSend} title="Send"/>
+        <View style={styles.sendButtonContainer}>
+          <Button onPress={handleSend} title="Send"/>
         </View>
       </View>
-      <View>
+      <View style={styles.messagesContainer}>
         {messages.map((message) => (
-          <Text key={message}>{message}</Text>
+          <Text key={message} style={styles.messageText}>{message}</Text>
         ))}
       </View>
     </View>
@@ -85,34 +88,74 @@ const ChatScreen: React.FC = () => {
 export default ChatScreen;
 
 const styles = StyleSheet.create({
-  bottomBar: {
+    container: {
       flex: 1,
-      alignItems: "center",
-      justifyContent: "center",
-      backgroundColor: "#CCCCFF",
+      backgroundColor: '#f2f2f2',
+      alignItems: 'stretch',
+      justifyContent: 'center',
     },
-    sendButton: {
-      alignItems: "center",
-      justifyContent: "center",
-      backgroundColor: "#CCCCFF",
-      position: 'relative',
-           bottom:-767,
-           left:0,
+    inputContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      padding: 10,
+      backgroundColor: '#fff',
+      borderTopWidth: 1,
+      borderTopColor: '#ddd',
+      position: 'absolute',
+      bottom: 0,
+      left: 0,
+      right: 0,
+    },
+    textInputContainer: {
+      flex: 1,
+      marginLeft: 10,
     },
     nameInput: {
-      alignItems: "center",
-      justifyContent: "space-evenly",
-      backgroundColor: "#ffffff",
-      position: 'relative',
-           bottom:-730,
-           left:0,
+      height: 40,
+      width: 150,
+      borderWidth: 1,
+      borderColor: '#ddd',
+      borderRadius: 5,
+      padding: 5,
+      fontSize: 16,
     },
     messageInput: {
-      alignItems: "center",
-      justifyContent: "space-evenly",
-      backgroundColor: "#ffffff",
-      position: 'relative',
-           bottom:-750,
-           left:0,
-    }
-})
+      height: 40,
+      flex: 1,
+      borderWidth: 1,
+      borderColor: '#ddd',
+      borderRadius: 5,
+      padding: 5,
+      fontSize: 16,
+    },
+    sendButtonContainer: {
+      marginLeft: 10,
+      padding: 10,
+    },
+    messagesContainer: {
+      flex: 1,
+      padding: 10,
+      marginBottom: 50,
+      marginTop: 50,
+      paddingTop: 50,
+    },
+    messageText: {
+      fontSize: 16,
+    },
+    imageContainer: {
+        height: '40%',
+        width: '100%',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 50,
+        paddingTop: 50,
+        backgroundColor: "#CCCCFF",
+      },
+      image: {
+        height: '100%',
+        width: '100%',
+        resizeMode: 'contain'
+      }
+  });
+      
+      
