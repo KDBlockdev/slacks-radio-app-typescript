@@ -14,7 +14,7 @@ const HomeScreen = () => {
         {/* <NowPlayingBanner /> */}
       </View>
       <View style={styles.componentBackground}>
-      <Image style={styles.logo} source={require("../../Images/SlacksTextBlack.png")} />
+      <Image style={styles.logo} source={require("../../Images/slackslogo.png")} />
       </View>
       <View style={styles.componentBackground}>
         <RadioStream />
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   },
   logo: {
     width: 400,
-    height: 50,
+    height: 400,
     padding: 60,
     paddingHorizontal: 10,
     backgroundColor: "#CCCCFF",

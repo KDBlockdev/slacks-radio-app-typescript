@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity} from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Button} from "react-native";
 import * as React from "react";
 import { useState } from 'react';
 import * as WebBrowser from 'expo-web-browser';
@@ -7,16 +7,6 @@ interface PayPalDonateProps {
   email: string;
   amount: number;
 }
-
-const styles = StyleSheet.create({
-  bottomBar: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#CCCCFF",
-  }
-  })
-
   const PayPalDonate = ({ email, amount }) => {
     const [donateUrl, setDonateUrl] = useState(`https://www.paypal.com/donate?hosted_button_id=ADX2PRR8X28CJ`);
   
@@ -25,13 +15,42 @@ const styles = StyleSheet.create({
     };
   
     return (
-      <TouchableOpacity onPress={handlePress}>
+      <View style={styles.supportPage}>
+        <View style={styles.donateText}>
         <Text>Slack’s is completely independent!</Text>
 <Text>We rely solely on subscriptions and donations.</Text>
 <Text>Please consider becoming a Slack’s Supporter.</Text>
-        <Text>Click here to Donate!</Text>
-      </TouchableOpacity>
+        </View>
+<View style={styles.donateButton}>
+        <Button onPress={handlePress} title="Click here to Donate!"/>
+</View>
+      </View>
     );
   };
 
   export default PayPalDonate;
+
+  const styles = StyleSheet.create({
+    supportPage:{
+      alignItems: "center",
+      justifyContent: "center",
+      backgroundColor: "#CCCCFF",
+    },
+    donateText: {
+      alignItems: "center",
+      justifyContent: "space-evenly",
+      backgroundColor: "#ffffff",
+      position: 'relative',
+           bottom:-400,
+           left:0,
+    },
+    donateButton: {
+      alignItems: "center",
+      justifyContent: "space-evenly",
+      backgroundColor: "#ffffff",
+      position: 'relative',
+           bottom:-580,
+           left:0,
+    }
+    })
+  

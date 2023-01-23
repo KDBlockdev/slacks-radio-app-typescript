@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { TouchableOpacity, View, Image, StyleSheet, Text } from 'react-native';
+import { TouchableOpacity, AppStateStatus, View, Image, StyleSheet, Text, AppState } from 'react-native';
 import { Audio } from 'expo-av';
 
 const streamUrl = 'https://s3.radio.co/seb7265206/low';
@@ -7,10 +7,26 @@ const streamUrl = 'https://s3.radio.co/seb7265206/low';
 const RadioStream: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [soundObject, setSoundObject] = useState<Audio.Sound | null>(null);
+  const [appState, setAppState] = useState(AppState.currentState);
 
-useEffect(() => {
-  playStream();
-}, []); 
+  let listener: any;
+
+  useEffect(() => {
+    playStream();
+    listener = AppState.addEventListener('change', handleAppStateChange);
+    return () => {
+      listener.remove();
+    };
+  }, []);
+
+  const handleAppStateChange = (nextAppState: AppStateStatus) => {
+    setAppState(nextAppState);
+    if (nextAppState === 'background') {
+      soundObject?.setIsMutedAsync(false);
+    } else if (nextAppState === 'active') {
+      soundObject?.setIsMutedAsync(true);
+    }
+};
 
   const playStream = async () => {
     if (!soundObject) {
@@ -29,19 +45,26 @@ useEffect(() => {
     }
   };
 
+
   return (
     <View>
-    <TouchableOpacity onPress={isPlaying ? pauseStream : playStream}>
-  <Image style={styles.transportButton}
-    source={isPlaying ? require('../../Images/stop.png') : require('../../Images/play1.png' )}
-  />
-  <Text style={styles.text}> LISTEN LIVE! </Text>
-</TouchableOpacity>
+      <TouchableOpacity onPress={isPlaying ? pauseStream : playStream}>
+        <Image
+          style={styles.transportButton}
+          source={
+            isPlaying
+              ? require('../../Images/stop.png')
+              : require('../../Images/play1.png')
+          }
+        />
+        <Text style={styles.text}>LISTEN LIVE!</Text>
+      </TouchableOpacity>
     </View>
   );
 };
 
 export default RadioStream;
+
 
 const styles = StyleSheet.create({
   main: {
