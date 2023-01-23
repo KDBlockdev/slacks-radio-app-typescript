@@ -5,7 +5,7 @@ import RadioStream from "../MainScreen/RadioStream";
 import SoundCloudPlayer from "../MainScreen/Soundcloud";
 import NowPlayingBanner from "../MainScreen/NowPlayingBanner";
 import { StackNavigationProp } from '@react-navigation/stack';
-import PushNotify from "../Notificaitons/PushNotificaitons";
+
 
 const HomeScreen = () => {
   return (
@@ -18,7 +18,6 @@ const HomeScreen = () => {
       </View>
       <View style={styles.componentBackground}>
         <RadioStream />
-        <PushNotify />
       </View>
       <View style={styles.componentBackground}>
         {/* <SoundCloudPlayer trackId={trackId}/> */}

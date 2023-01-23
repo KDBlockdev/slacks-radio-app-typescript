@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, TextInput, Button, Alert } from 'react-native';
+import { Text, View, TextInput, Button, Alert, StyleSheet } from 'react-native';
 import io from 'socket.io-client';
 
 const ChatScreen: React.FC = () => {
@@ -51,7 +51,9 @@ const ChatScreen: React.FC = () => {
           placeholder="Enter your name"
           value={name}
           onChangeText={setName}
+          style={styles.nameInput}
         />
+        <View>
         <TextInput
           placeholder="Enter your message"
           value={text}
@@ -64,8 +66,12 @@ const ChatScreen: React.FC = () => {
           multiline={false}
           dataDetectorTypes={'all'}
           textContentType={'none'}
+          style={styles.messageInput}
         />
-        <Button onPress={handleSend} title="Send" />
+        </View>
+        <View style={styles.sendButton}>
+        <Button onPress={handleSend} title="Send"/>
+        </View>
       </View>
       <View>
         {messages.map((message) => (
@@ -77,3 +83,36 @@ const ChatScreen: React.FC = () => {
 };
 
 export default ChatScreen;
+
+const styles = StyleSheet.create({
+  bottomBar: {
+      flex: 1,
+      alignItems: "center",
+      justifyContent: "center",
+      backgroundColor: "#CCCCFF",
+    },
+    sendButton: {
+      alignItems: "center",
+      justifyContent: "center",
+      backgroundColor: "#CCCCFF",
+      position: 'relative',
+           bottom:-767,
+           left:0,
+    },
+    nameInput: {
+      alignItems: "center",
+      justifyContent: "space-evenly",
+      backgroundColor: "#ffffff",
+      position: 'relative',
+           bottom:-730,
+           left:0,
+    },
+    messageInput: {
+      alignItems: "center",
+      justifyContent: "space-evenly",
+      backgroundColor: "#ffffff",
+      position: 'relative',
+           bottom:-750,
+           left:0,
+    }
+})

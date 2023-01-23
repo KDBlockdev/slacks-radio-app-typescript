@@ -18,14 +18,17 @@ function MyTabs() {
         title: "Home",
         tabBarIcon: ( ) => 
           <MaterialCommunityIcons name="home" size={26} 
-          style={{ backgroundColor: '#CCCCFF'}}/>
+          style={{ backgroundColor: '#ffffff'}}
+          />,
+          headerShown: false
       }} 
       />
         <Tab.Screen name="Contact" component={ContactScreen} options={{
         title: "Contact",
         tabBarIcon: ( ) => 
         <AntDesign name="question" size={26} 
-        style={{ backgroundColor: '#CCCCFF'}}/>
+        style={{ backgroundColor: '#ffffff'}}/>,
+        headerShown: false
       }} />
        <Tab.Screen name="Apply" component={ApplyScreen} options={{
         title: "Apply",
@@ -33,8 +36,9 @@ function MyTabs() {
         <MaterialCommunityIcons
         name="application-edit-outline"
         size={26}
-        style={{ backgroundColor: '#CCCCFF'}}
-      />
+        style={{ backgroundColor: '#ffffff'}}
+      />,
+      headerShown: false
       }} />
       <Tab.Screen name="Support" component={PayPalDonate} options={{
         title: "Support",
@@ -42,9 +46,10 @@ function MyTabs() {
           <MaterialCommunityIcons
           name="cash-fast"
           size={26}
-           style={{ backgroundColor: '#CCCCFF'}}
+           style={{ backgroundColor: '#ffffff'}}
               />
-        )
+        ),
+        headerShown: false
       }} />
       <Tab.Screen name="Chat" component={Chat} options={{
         title: "Chat",
@@ -52,9 +57,10 @@ function MyTabs() {
           <Ionicons
                 name="chatbubbles-outline"
                 size={26}
-                style={{ backgroundColor: '#CCCCFF'}}
+                style={{ backgroundColor: '#ffffff'}}
               />
-        )
+        ),
+        headerShown: false
       }} />
     </Tab.Navigator>
   );
