@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { TouchableOpacity, AppStateStatus, View, Image, StyleSheet, Text, AppState } from 'react-native';
+import { TouchableOpacity, View, Image, StyleSheet, Text } from 'react-native';
 import { Audio } from 'expo-av';
 
 const streamUrl = 'https://s3.radio.co/seb7265206/low';
@@ -7,26 +7,6 @@ const streamUrl = 'https://s3.radio.co/seb7265206/low';
 const RadioStream: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [soundObject, setSoundObject] = useState<Audio.Sound | null>(null);
-  const [appState, setAppState] = useState(AppState.currentState);
-
-  let listener: any;
-
-  useEffect(() => {
-    playStream();
-    listener = AppState.addEventListener('change', handleAppStateChange);
-    return () => {
-      listener.remove();
-    };
-  }, []);
-
-  const handleAppStateChange = (nextAppState: AppStateStatus) => {
-    setAppState(nextAppState);
-    if (nextAppState === 'background') {
-      soundObject?.setIsMutedAsync(false);
-    } else if (nextAppState === 'active') {
-      soundObject?.setIsMutedAsync(true);
-    }
-};
 
   const playStream = async () => {
     if (!soundObject) {
@@ -45,18 +25,20 @@ const RadioStream: React.FC = () => {
     }
   };
 
-
   return (
     <View>
       <TouchableOpacity onPress={isPlaying ? pauseStream : playStream}>
-        <Image
-          style={styles.transportButton}
-          source={
-            isPlaying
-              ? require('../../Images/stop.png')
-              : require('../../Images/play1.png')
-          }
-        />
+        {isPlaying ? (
+          <Image
+            style={styles.transportButton}
+            source={require('../../Images/stop.png')}
+          />
+        ) : (
+          <Image
+            style={styles.transportButton}
+            source={require('../../Images/play1.png')}
+          />
+        )}
         <Text style={styles.text}>LISTEN LIVE!</Text>
       </TouchableOpacity>
     </View>
@@ -65,58 +47,23 @@ const RadioStream: React.FC = () => {
 
 export default RadioStream;
 
-
 const styles = StyleSheet.create({
-  main: {
-    flex: 1,
-    backgroundColor: "#CCCCFF",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: 70,
-  },
-  componentBackground: {
-    backgroundColor: "#CCCCFF",
-    justifyContent: "center",
-    alignItems: "center",
-    margin: 5,
-    borderRadius: 5,
-  },
-  logo: {
-    width: 200,
-    height: 40,
-    padding: 100,
-    paddingHorizontal: 16,
-    backgroundColor: "#CCCCFF",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  bottomBar: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#CCCCFF",
-  },
-  appButtonContainer: {
-    elevation: 8,
-    alignItems: "center",
-    backgroundColor: "purple",
-    borderRadius: 10,
-    paddingVertical: 10,
-    paddingHorizontal: 12,
-  },
-  buttonImageIconStyle: {
-    padding: 10,
-    margin: 5,
-    height: 25,
-    width: 25,
-    resizeMode: 'stretch',
+  container: {
+    flexDirection: 'column',
+    alignItems: 'center',
   },
   transportButton: {
     padding: 50,
     margin: 15,
     height: 200,
     width: 200,
-    resizeMode: 'stretch',
+  },
+  logo: {
+    alignItems: 'center',
+    marginTop: 20,
+    height: 50,
+    width: 50,
+    resizeMode: 'contain',
   },
   text: {
     textAlign: 'center',
