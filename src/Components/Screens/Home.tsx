@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity, Platform } from "react-native";
 import { useState } from "react";
 import * as React from "react";
 import RadioStream from "../MainScreen/RadioStream";
@@ -6,15 +6,18 @@ import SoundCloudPlayer from "../MainScreen/Soundcloud";
 import NowPlayingBanner from "../MainScreen/NowPlayingBanner";
 import { StackNavigationProp } from '@react-navigation/stack';
 
-
 const HomeScreen = () => {
   return (
     <View style={styles.componentBackground}>
       <View style={styles.componentBackground}>
         {/* <NowPlayingBanner /> */}
       </View>
-      <View style={styles.componentBackground}>
-      <Image style={styles.logo} source={require("../../Images/slackslogo.png")} />
+      <View style={styles.logoContainer}>
+        <Image 
+          style={styles.logo} 
+          source={require("../../Images/slackslogo.png")} 
+          resizeMode='contain' 
+        />
       </View>
       <View style={styles.componentBackground}>
         <RadioStream />
@@ -39,14 +42,14 @@ const styles = StyleSheet.create({
     margin: 5,
     borderRadius: 5,
   },
-  logo: {
-    width: 400,
-    height: 400,
-    padding: 60,
-    paddingHorizontal: 10,
-    backgroundColor: "#CCCCFF",
+  logoContainer: {
+    width: '100%',
     alignItems: "center",
     justifyContent: "center",
+    padding: Platform.OS === 'ios' ? 20 : 40,
+  },
+  logo: {
+    width: '100%',
+    height: Platform.OS === 'ios' ? '60%' : '80%',
   },
 })
-

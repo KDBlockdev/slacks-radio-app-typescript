@@ -49,16 +49,19 @@ const ChatScreen: React.FC = () => {
       <View style={styles.imageContainer}>
         <Image source={require('../../Images/SlacksTextWhite.png')} style={styles.image} />
       </View>
+      <View>
+      <Text style={styles.messageText}>Slacks Radio is an inclusive station. We do not tolerate any racism, sexism or bullying. Please be a respectful member of our community.</Text>
+      </View>
       <View style={styles.inputContainer}>
         <TextInput
-          placeholder="Enter your name"
+          placeholder="Name"
           value={name}
           onChangeText={setName}
           style={styles.nameInput}
         />
         <View style={styles.textInputContainer}>
           <TextInput
-            placeholder="Enter your message"
+            placeholder="Message"
             value={text}
             onChangeText={setText}
             autoCorrect={true}
@@ -78,7 +81,7 @@ const ChatScreen: React.FC = () => {
       </View>
       <View style={styles.messagesContainer}>
         {messages.map((message) => (
-          <Text key={message} style={styles.messageText}>{message}</Text>
+          <Text key={message} style={styles.activeMessageText}>{message}</Text>
         ))}
       </View>
     </View>
@@ -95,8 +98,9 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
     },
     inputContainer: {
+      flex:1,
       flexDirection: 'row',
-      alignItems: 'center',
+      alignItems: 'flex-end',
       padding: 10,
       backgroundColor: '#fff',
       borderTopWidth: 1,
@@ -118,6 +122,8 @@ const styles = StyleSheet.create({
       borderRadius: 5,
       padding: 5,
       fontSize: 16,
+      allowFontScaling: true,
+      alignSelf: 'stretch'
     },
     messageInput: {
       height: 40,
@@ -127,6 +133,8 @@ const styles = StyleSheet.create({
       borderRadius: 5,
       padding: 5,
       fontSize: 16,
+      alignSelf: 'stretch',
+  allowFontScaling: true
     },
     sendButtonContainer: {
       marginLeft: 10,
@@ -139,23 +147,32 @@ const styles = StyleSheet.create({
       marginTop: 50,
       paddingTop: 50,
     },
-    messageText: {
+    activeMessageText: {
       fontSize: 16,
     },
     imageContainer: {
-        height: '40%',
+        height: '20%',
         width: '100%',
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 50,
+        marginTop: 0,
         paddingTop: 50,
         backgroundColor: "#CCCCFF",
+        alignSelf: 'stretch',
       },
       image: {
         height: '100%',
         width: '100%',
         resizeMode: 'contain'
-      }
+      },
+      messageText: {
+        fontSize: 16,
+        textAlign: 'center',
+        padding: 10,
+        color: '#000',
+        fontWeight: 'bold',
+        alignSelf: 'stretch',
+       },
   });
       
       

@@ -1,13 +1,15 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import * as React from 'react';
 import HomeScreen from "../Screens/Home"
-import ApplyScreen from '../Screens/Apply';
+import ArchiveScreen from '../Screens/Archive';
 import ContactScreen from '../Screens/Contact';
 import Chat from '../Screens/Chat'
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import PayPalDonate from '../Screens/Support';
+import Icon from '@mdi/react';
+import { mdiCassette } from '@mdi/js';
 
 const Tab = createBottomTabNavigator();
 
@@ -26,15 +28,15 @@ function MyTabs() {
         <Tab.Screen name="Contact" component={ContactScreen} options={{
         title: "Contact",
         tabBarIcon: ( ) => 
-        <AntDesign name="question" size={26} 
+        <MaterialCommunityIcons name="saxophone" size={26} 
         style={{ backgroundColor: '#ffffff'}}/>,
         headerShown: false
       }} />
-       <Tab.Screen name="Apply" component={ApplyScreen} options={{
-        title: "Apply",
+       <Tab.Screen name="Archive" component={ArchiveScreen} options={{
+        title: "Archive",
         tabBarIcon: () => 
         <MaterialCommunityIcons
-        name="application-edit-outline"
+        name="cassette"
         size={26}
         style={{ backgroundColor: '#ffffff'}}
       />,
@@ -68,4 +70,7 @@ function MyTabs() {
 
 export default MyTabs;
 
-<PayPalDonate email="example@example.com" amount={10} />
+
+
+
+

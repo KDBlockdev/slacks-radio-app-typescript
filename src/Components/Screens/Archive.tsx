@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet } from "react-native";
 import * as React from "react";
 
-const ApplyScreen = () => {
+const ArchiveScreen = () => {
     return (
         <View style={styles.bottomBar}>
             <Text>Apply Here!</Text>
@@ -9,7 +9,7 @@ const ApplyScreen = () => {
     )
 }
 
-export default ApplyScreen;
+export default ArchiveScreen;
 
 const styles = StyleSheet.create({
     bottomBar: {
