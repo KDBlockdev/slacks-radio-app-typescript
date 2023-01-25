@@ -43,14 +43,18 @@ const ChatScreen: React.FC = () => {
     setMessages([...messages, message]);
     setText('');
   };
-
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
         <Image source={require('../../Images/SlacksTextWhite.png')} style={styles.image} />
       </View>
       <View>
-      <Text style={styles.messageText}>Slacks Radio is an inclusive station. We do not tolerate any racism, sexism or bullying. Please be a respectful member of our community.</Text>
+      <Text style={styles.messageText}>Slacks Radio is an inclusive station. We do not tolerate any racism, sexism, homophobia or bullying. Please be a respectful member of our community.</Text>
+      </View>
+      <View style={styles.messagesContainer}>
+        {messages.map((message) => (
+          <Text key={message} style={styles.activeMessageText}>{message}</Text>
+        ))}
       </View>
       <View style={styles.inputContainer}>
         <TextInput
@@ -78,11 +82,6 @@ const ChatScreen: React.FC = () => {
         <View style={styles.sendButtonContainer}>
           <Button onPress={handleSend} title="Send"/>
         </View>
-      </View>
-      <View style={styles.messagesContainer}>
-        {messages.map((message) => (
-          <Text key={message} style={styles.activeMessageText}>{message}</Text>
-        ))}
       </View>
     </View>
   );

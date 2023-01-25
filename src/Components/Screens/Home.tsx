@@ -8,7 +8,7 @@ const HomeScreen = () => {
       <View style={styles.logoContainer}>
         <Image 
           style={styles.logo} 
-          source={require("../../Images/slackslogo.png")} 
+          source={require("../../Images/SlacksTextWhite.png")} 
           resizeMode='contain'
         />
       </View>
@@ -26,9 +26,9 @@ export default HomeScreen;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 2,
-    backgroundColor: "#CCCCFF", // added background color to container
-    paddingTop: Platform.OS === 'ios' ? 0 : 25,
+    flex: 1,
+    backgroundColor: "#CCCCFF",
+    paddingTop: Platform.OS === 'ios' ? 0 : 0,
   },
   componentBackground: {
     justifyContent: "center",
@@ -41,22 +41,23 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: "center",
     justifyContent: "center",
-    padding: Platform.OS === 'ios' ? 20 : 40,
   },
   logo: {
     width: '100%',
     height: Platform.OS === 'ios' ? '60%' : '80%',
+    marginBottom: 5,  // added marginBottom
   },
   playStopContainer: {
-    backgroundColor: "#CCCCFF", // added background color to container
+    backgroundColor: "#CCCCFF",
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 5,
     padding: 10,
   },
   listenLive: {
-    color: "#CCCCFF", // added color to text
+    color: "#CCCCFF",
     fontWeight: "bold",
     marginTop: 10,
   },
 });
+
