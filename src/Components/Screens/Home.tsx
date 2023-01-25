@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity, Platform, SafeAreaView } from "react-native";
 import * as React from "react";
 import RadioStream from "../MainScreen/RadioStream";
+import PushNotification from "../Notificaitons/PushNotificaitons";
 
 const HomeScreen = () => {
   return (
@@ -17,6 +18,9 @@ const HomeScreen = () => {
           <RadioStream />
         </View>
         <Text style={styles.listenLive}>Listen Live</Text>
+      </View>
+      <View>
+        <PushNotification />
       </View>
     </SafeAreaView>
   );
@@ -44,7 +48,7 @@ const styles = StyleSheet.create({
   },
   logo: {
     width: '100%',
-    height: Platform.OS === 'ios' ? '60%' : '80%',
+    height: Platform.OS === 'ios' ? '50%' : '40%',
     marginBottom: 5,  // added marginBottom
   },
   playStopContainer: {
@@ -58,6 +62,6 @@ const styles = StyleSheet.create({
     color: "#CCCCFF",
     fontWeight: "bold",
     marginTop: 10,
-  },
+  }
 });
 

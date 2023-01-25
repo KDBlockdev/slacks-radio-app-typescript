@@ -6,7 +6,7 @@ const emailLink = "mailto:slacksradio@pm.me";
 
 return (
     <View style={styles.contactScreen}>
-        <Text style={styles.text}>Please direct all inquiries including show applicaitons to</Text>
+        <Text style={styles.text}>Please direct all inquiries including show applicatins to</Text>
         <Text style={styles.text} onPress={() => Linking.openURL(emailLink)}>slacksradio@pm.me</Text>
     </View>
 )

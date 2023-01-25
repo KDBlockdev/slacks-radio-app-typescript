@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { TouchableOpacity, View, Image, StyleSheet, Text } from 'react-native';
 import { Audio } from 'expo-av';
+import PushNotification from '../Notificaitons/PushNotificaitons'
 
 const streamUrl = 'https://s3.radio.co/seb7265206/low';
 
@@ -16,6 +17,7 @@ const RadioStream: React.FC = () => {
     }
     soundObject?.playAsync();
     setIsPlaying(true);
+    <PushNotification handleStreamLiveProp={playStream}/>
   };
 
   const pauseStream = async () => {
@@ -24,6 +26,12 @@ const RadioStream: React.FC = () => {
       setIsPlaying(false);
     }
   };
+
+  useEffect(() => {
+    if(isPlaying){
+      <PushNotification handleStreamLiveProp={playStream}/>
+    }
+  }, [isPlaying]);
 
   return (
     <View>
