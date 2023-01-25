@@ -38,16 +38,17 @@ const RadioStream: React.FC = () => {
       <TouchableOpacity onPress={isPlaying ? pauseStream : playStream}>
         {isPlaying ? (
           <Image
-            style={styles.transportButton}
-            source={require('../../Images/stop.png')}
+          style={styles.transportButton}
+          source={require('../../Images/stop.png')}
           />
-        ) : (
-          <Image
+          ) : (
+            <Image
             style={styles.transportButton}
             source={require('../../Images/play1.png')}
-          />
-        )}
+            />
+            )}
         <Text style={styles.text}>LISTEN LIVE!</Text>
+            <PushNotification handleStreamLiveProp={playStream}/>
       </TouchableOpacity>
     </View>
   );

@@ -17,17 +17,22 @@ const PushNotification: React.FC<{handleStreamLiveProp: any}>= ({handleStreamLiv
   const sendNotification = async () => {
     await askPermissions();
     const notification = {
-      title: 'SLACKS RADIO IS LIVE',
-      body: 'Tune in now!',
-      ios: {
-        sound: true,
-      },
-      android: {
-        sound: true,
-        priority: 'high',
-        sticky: false,
-        vibrate: true,
-      },
+        content: {
+            title: 'SLACKS RADIO IS LIVE',
+            body: 'Tune in now!',
+        },
+        trigger: {
+            seconds: 5,
+        },
+        ios: {
+            sound: true,
+        },
+        android: {
+            sound: true,
+            priority: 'high',
+            sticky: false,
+            vibrate: true,
+        },
     };
     Notifications.scheduleNotificationAsync(notification);
   };

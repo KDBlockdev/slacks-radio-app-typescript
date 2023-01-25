@@ -19,9 +19,6 @@ const HomeScreen = () => {
         </View>
         <Text style={styles.listenLive}>Listen Live</Text>
       </View>
-      <View>
-        <PushNotification />
-      </View>
     </SafeAreaView>
   );
 };
