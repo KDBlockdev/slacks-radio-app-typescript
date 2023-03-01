@@ -2,6 +2,8 @@ import { View, Text, StyleSheet, Image, TouchableOpacity, Platform, SafeAreaView
 import * as React from "react";
 import RadioStream from "../MainScreen/RadioStream";
 import PushNotification from "../Notificaitons/PushNotificaitons";
+import InstagramFeed from "../MainScreen/InstagramFeed";
+
 
 const HomeScreen = () => {
   return (
@@ -18,6 +20,9 @@ const HomeScreen = () => {
           <RadioStream />
         </View>
         <Text style={styles.listenLive}>Listen Live</Text>
+      </View>
+      <View>
+        <InstagramFeed />
       </View>
     </SafeAreaView>
   );
@@ -46,7 +51,7 @@ const styles = StyleSheet.create({
   logo: {
     width: '100%',
     height: Platform.OS === 'ios' ? '50%' : '40%',
-    marginBottom: 5,  // added marginBottom
+    resizeMode: "contain",
   },
   playStopContainer: {
     backgroundColor: "#CCCCFF",

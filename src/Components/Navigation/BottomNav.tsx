@@ -15,11 +15,11 @@ const Tab = createBottomTabNavigator();
 
 function MyTabs() {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator >
       <Tab.Screen name="Home" component={HomeScreen} options={{
         title: "Home",
         tabBarIcon: ( ) => 
-          <MaterialCommunityIcons name="home" size={26} 
+          <MaterialCommunityIcons name="home" size={30} 
           style={{ backgroundColor: '#ffffff'}}
           />,
           headerShown: false
@@ -28,7 +28,7 @@ function MyTabs() {
         <Tab.Screen name="Contact" component={ContactScreen} options={{
         title: "Contact",
         tabBarIcon: ( ) => 
-        <MaterialCommunityIcons name="saxophone" size={26} 
+        <MaterialCommunityIcons name="saxophone" size={30} 
         style={{ backgroundColor: '#ffffff'}}/>,
         headerShown: false
       }} />
@@ -37,7 +37,7 @@ function MyTabs() {
         tabBarIcon: () => 
         <MaterialCommunityIcons
         name="cassette"
-        size={26}
+        size={30}
         style={{ backgroundColor: '#ffffff'}}
       />,
       headerShown: false
@@ -47,8 +47,8 @@ function MyTabs() {
         tabBarIcon: ( ) => (
           <MaterialCommunityIcons
           name="cash-fast"
-          size={26}
-           style={{ backgroundColor: '#ffffff'}}
+          size={30}
+          style={{ backgroundColor: '#ffffff'}}
               />
         ),
         headerShown: false
@@ -58,7 +58,18 @@ function MyTabs() {
         tabBarIcon: ( ) => (
           <Ionicons
                 name="chatbubbles-outline"
-                size={26}
+                size={30}
+                style={{ backgroundColor: '#ffffff'}}
+              />
+        ),
+        headerShown: false
+      }} />
+      <Tab.Screen name="Shop" component={Shop} options={{
+        title: "Shop",
+        tabBarIcon: ( ) => (
+          <Ionicons
+                name="chatbubbles-outline"
+                size={30}
                 style={{ backgroundColor: '#ffffff'}}
               />
         ),
