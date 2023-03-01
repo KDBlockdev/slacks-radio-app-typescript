@@ -10,6 +10,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import PayPalDonate from '../Screens/Support';
 import Icon from '@mdi/react';
 import { mdiCassette } from '@mdi/js';
+import ShopifyStore from '../Screens/Shop';
 
 const Tab = createBottomTabNavigator();
 
@@ -64,7 +65,7 @@ function MyTabs() {
         ),
         headerShown: false
       }} />
-      <Tab.Screen name="Shop" component={Shop} options={{
+      <Tab.Screen name="Shop" component={ShopifyStore} options={{
         title: "Shop",
         tabBarIcon: ( ) => (
           <Ionicons
